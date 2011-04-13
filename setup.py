@@ -1,3 +1,4 @@
+import codecs
 from setuptools import setup, find_packages
 
 import grunt
@@ -23,7 +24,7 @@ setup(
     },
     include_package_data = True,
     license='Apache',
-    long_description=open('README.md').read(),
+    long_description=codecs.open('README.md', encoding='utf-8').read(),
     name = 'grunt',
     packages = find_packages(),
     version = grunt.__version__,
