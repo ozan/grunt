@@ -1,7 +1,12 @@
 import codecs
 from setuptools import setup, find_packages
+import os
 
 import grunt
+
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
 setup(
@@ -23,7 +28,7 @@ setup(
     },
     include_package_data = True,
     license='Apache',
-    long_description=codecs.open('README.md', encoding='utf-8').read(),
+    long_description=read('README.md'),
     name = 'grunt',
     packages = find_packages(),
     version = grunt.__version__,
