@@ -1,0 +1,85 @@
+<!doctype html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta charset="utf-8" /> 
+    <title>$title</title> 
+    <style type="text/css" media="screen">
+    html, body, article, section { height: 100%; padding: 0; margin: 0; }
+    article { overflow: hidden; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 4em;
+      font-weight: bold;
+      background: #ccc; 
+    }
+    section {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    section > div {
+      padding: 0.8em 4em 1em 1.5em;
+    }
+    section.light > div {
+      color: #363636;
+      text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+    section.dark > div {
+      color: #fff;
+      text-shadow: 0.005em 0.02em 0.03em rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.2);      
+    }
+    section.empty > div { display: none; } /* Prevent shaded background from appearing */
+
+    article, section { display: block; } /* HTML5 fixes */
+      
+    $backgrounds
+      
+    </style>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(function () {
+      var slides = $('article.deck > section')
+        , currentSlide;
+        
+      function show (s) {
+        if (!s || s.length === 0) { return; }
+        slides.hide();
+        s.show();
+        currentSlide = s;
+        
+        var id = s.attr('id')
+        if (id) { location.hash = id; }
+      }
+      
+      function previous () { show(currentSlide.prev('section')); }
+      function next () { show(currentSlide.next('section')); }
+
+      var firstSlide = location.hash === '' ? slides[0] : $(location.hash)[0];
+      show($(firstSlide));
+
+      $('html').bind('keydown', function (e) {
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return true; }
+        if ($.inArray(e.keyCode, [13, 32, 39, 40]) >= 0) { next(); } // ENTER, SPACE, RIGHT, DOWN
+        if ($.inArray(e.keyCode, [37, 38]) >= 0) { previous(); } // LEFT, UP        
+      });
+      
+    });
+    </script>
+  </head> 
+  <body>
+    
+    <article class="deck">
+      <time pubdate datetime="$pubdate"></time>
+      
+      $slides    
+      
+    </article>
+  </body> 
+</html>

@@ -1,0 +1,116 @@
+<!doctype html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta charset="utf-8" /> 
+    <title>Here is a presentation about fruits</title> 
+    <style type="text/css" media="screen">
+    html, body, article, section { height: 100%; padding: 0; margin: 0; }
+    article { overflow: hidden; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 4em;
+      font-weight: bold;
+      background: #ccc; 
+    }
+    section {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    section > div {
+      padding: 0.8em 4em 1em 1.5em;
+    }
+    section.light > div {
+      color: #363636;
+      text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+    section.dark > div {
+      color: #fff;
+      text-shadow: 0.005em 0.02em 0.03em rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.2);      
+    }
+    section.empty > div { display: none; } /* Prevent shaded background from appearing */
+
+    article, section { display: block; } /* HTML5 fixes */
+      
+    #slide-62af6-it-starts-with-some-apples { background-image: url(http://farm4.static.flickr.com/3139/2780642603_920207d6cd_o.jpg); }
+#slide-09f19--followed-by-some-pears { background-image: url(http://farm1.static.flickr.com/59/214356955_aba23e7b13_o.jpg); }
+#slide-a8ae8- { background-image: url(http://farm3.static.flickr.com/2745/4346213550_43117ec8fc_o.jpg); }
+#slide-2f04a- { background-image: url(http://farm5.static.flickr.com/4023/4405120042_8165106b6e_o.jpg); }
+#slide-a6258-fin { background-image: url(http://farm1.static.flickr.com/176/425537870_7bf42a21cb_o.jpg); }
+      
+    </style>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(function () {
+      var slides = $('article.deck > section')
+        , currentSlide;
+        
+      function show (s) {
+        if (!s || s.length === 0) { return; }
+        slides.hide();
+        s.show();
+        currentSlide = s;
+        
+        var id = s.attr('id')
+        if (id) { location.hash = id; }
+      }
+      
+      function previous () { show(currentSlide.prev('section')); }
+      function next () { show(currentSlide.next('section')); }
+
+      var firstSlide = location.hash === '' ? slides[0] : $(location.hash)[0];
+      show($(firstSlide));
+
+      $('html').bind('keydown', function (e) {
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return true; }
+        if ($.inArray(e.keyCode, [13, 32, 39, 40]) >= 0) { next(); } // ENTER, SPACE, RIGHT, DOWN
+        if ($.inArray(e.keyCode, [37, 38]) >= 0) { previous(); } // LEFT, UP        
+      });
+      
+    });
+    </script>
+  </head> 
+  <body>
+    
+    <article class="deck">
+      <time pubdate datetime="2011-04-13T00:58:29.900647"></time>
+      
+      
+<section id="slide-ac7e3-here-is-a-presentation-about" class="light">
+    <div>Here is a presentation about fruits</div>
+</section>
+
+<section id="slide-62af6-it-starts-with-some-apples" class="dark">
+    <div>It starts with some apples …</div>
+</section>
+
+<section id="slide-09f19--followed-by-some-pears" class="dark">
+    <div>… followed by some pears.</div>
+</section>
+
+<section id="slide-7b1ff-want-something-more-exotic" class="light">
+    <div>Want something more exotic?</div>
+</section>
+
+<section id="slide-a8ae8-" class="dark empty">
+    <div></div>
+</section>
+
+<section id="slide-2f04a-" class="dark empty">
+    <div></div>
+</section>
+
+<section id="slide-a6258-fin" class="dark">
+    <div>(fin)</div>
+</section>    
+      
+    </article>
+  </body> 
+</html>
