@@ -15,4 +15,4 @@
 """Render a single-file HTML5 slideshow from a file of slide definitions"""
 
 __author__ = 'Ozan Onay <ozan.onay@gmail.com>'
-__version__ = '0.1'
+__version__ = '0.1.1'
