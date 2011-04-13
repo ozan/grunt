@@ -23,7 +23,7 @@ setup(
     },
     include_package_data = True,
     license='Apache',
-    long_description=open('README').read(),
+    long_description=open('README.md').read(),
     name = 'grunt',
     packages = find_packages(),
     version = grunt.__version__,
