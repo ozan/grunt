@@ -11,11 +11,11 @@ Install grunt oldschool
     wget http://pypi.python.org/packages/source/g/grunt/grunt-0.1.1.tar.gz
     tar -xzvf grunt-0.1.1.tar.gz
     cd grunt-0.1.1
-    sudo python setup.py install
+    python setup.py install
 
 Install grunt newschool
 
-    sudo pip install grunt
+    pip install grunt
 
 Example usage
 -------------
